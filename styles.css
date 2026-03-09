@@ -1129,3 +1129,50 @@ body {
         font-size: 2rem;
     }
   }
+/* ===== HERO IMAGE UPGRADE (ADDED) ===== */
+
+.hero{
+    position: relative;
+    background: url("hero-bg.jpg") center/cover no-repeat !important;
+    color: white;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-title{
+    color:white !important;
+}
+
+.hero-subtitle{
+    color:#f1f1f1 !important;
+}
+
+/* logo styling */
+
+.logo img{
+    height:40px;
+}
+
+.hero-logo{
+    width:140px;
+    margin-bottom:20px;
+}
+
+/* gradient bug fix */
+
+.cta-final{
+    background: linear-gradient(135deg,#3498db 0%,#2c3e50 100%);
+}
