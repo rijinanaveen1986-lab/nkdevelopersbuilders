@@ -1,0 +1,2477 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+                body {
+                  background-color: white; /* Ensure the iframe has a white background */
+                }
+
+                * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header & Navigation */
+.header {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h2 {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-menu a:hover {
+    color: #3498db;
+}
+
+.nav-menu a.active {
+    color: #3498db;
+}
+
+.nav-menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #3498db;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #2c3e50;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 2rem 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu a.active::after {
+        display: none;
+    }
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 12rem 0 8rem 0;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Trust Bar */
+.trust-bar {
+    background: #fff;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.trust-content {
+    text-align: center;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
+
+.btn-secondary:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Page Hero */
+.page-hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 8rem 0 4rem 0;
+    text-align: center;
+}
+
+.page-hero h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.page-hero p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+}
+
+/* Sections */
+.section-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+/* Services Overview */
+.services-overview {
+    padding: 6rem 0;
+    background: #f8f9fa;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    color: #7f8c8d;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+    padding: 6rem 0;
+    background: #fff;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: #7f8c8d;
+}
+
+/* Pricing Section */
+.pricing {
+    padding: 6rem 0;
+    background: #f8f9fa;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.pricing-card.popular {
+    border: 2px solid #3498db;
+    transform: scale(1.05);
+}
+
+.pricing-card.popular:hover {
+    transform: scale(1.07);
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.popular-tag {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3498db;
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.pricing-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3498db;
+    margin-bottom: 1.5rem;
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.features li {
+    padding: 0.5rem 0;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+.features li:last-child {
+    border-bottom: none;
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 6rem 0;
+    background: #fff;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.portfolio-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 300px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(44, 62, 80, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-overlay p {
+    color: #3498db;
+}
+
+/* Portfolio Filters */
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+/* Process Section */
+.process {
+    padding: 6rem 0;
+    background: #f8f9fa;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.process-step {
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: #3498db;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.process-step h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.process-step p {
+    color: #7f8c8d;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 6rem 0;
+    background: #fff;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.rating {
+    color: #ffc107;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card p {
+    color: #555;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.client-info h4 {
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+}
+
+.client-info p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Final CTA */
+.cta-final {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #3498db 0%, #20 100%);
+    color: white;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-final .btn-primary {
+    background: white;
+    color: #3498db;
+}
+
+.cta-final .btn-primary:hover {
+    background: #f8f9fa;
+    color: #2980b9;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-info h2 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: #3498db;
+    min-width: 24px;
+}
+
+.info-item h3 {
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+}
+
+.info-item p {
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    color: white;
+    background: #3498db;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.contact-form {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.contact-form h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Map Section */
+.map-section {
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.map-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Stats Section */
+.stats-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: ;
+}
+
+.stat-item p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* About Full */
+.about-full {
+    padding: 4rem 0;
+}
+
+.about-content-full {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-text h2,
+.about-text h3 {
+    color: #2c3e50;
+    margin: 1.5rem 0 1rem 0;
+}
+
+.about-text p {
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.about-text ul {
+    margin: 1rem 0;
+}
+
+.about-text li {
+    margin-bottom: 0.5rem;
+    color: #555;
+    padding-left: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.stat-item h3 {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+    color: #7f8c8d;
+    margin: 0;
+}
+
+/* Team Section */
+.team {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.team-member {
+    text-align: center;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #3498db;
+}
+
+.team-member h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.team-member p {
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+.team-member p:last-child {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Services Full */
+.services-full {
+    padding: 4rem 0;
+    background: #fff;
+}
+
+.service-card-full {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.service-card-full:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.service-card-full i {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.service-card-full h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.service-card-full ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+.service-card-full li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+    color: white;
+    text-align: center;
+}
+
+.cta-section .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-section .cta-content p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background: #128c7e;
+    transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    padding: 4rem 0 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-info h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-info p {
+    color: #bdc3c7;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.contact-details p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.footer-links h4,
+.social-links h4 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #3498db;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-links a {
+    color: #bdc3c7;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #3498db;
+}
+
+.footer-bottom {
+    border-top: 1px solid #34495e;
+    padding-top: 1rem;
+    text-align: center;
+    color: #bdc3c7;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-content-full {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-card.popular {
+        transform: scale(1);
+    }
+    
+    .pricing-card.popular:hover {
+        transform: scale(1.05);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .whatsapp-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-grid,
+    .portfolio-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 10rem 0 6rem 0;
+    }
+    
+    .page-hero {
+        padding: 6rem 0 3rem 0;
+    }
+    
+    .logo h2 {
+        font-size: 1.2rem;
+    }
+    
+    .nav-menu {
+        padding: 1rem 0;
+    }
+    
+    .nav-menu a {
+        font-size: 1.1rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+}
+
+
+              </style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NK Web Developers | Professional Web Development Agency in Calicut</title>
+    <meta name="description" content="Premium web development services in Calicut, Kerala. Custom business websites, e-commerce solutions, and digital marketing by NK Web Developers & Anvi Online Services.">
+    <meta name="keywords" content="web development, website design, e-commerce, web developer, Calicut, Kerala, custom websites, business websites">
+    <meta name="author" content="NK Web Developers">
+    <meta property="og:title" content="NK Web Developers | Professional Web Development Agency">
+    <meta property="og:description" content="Premium web development services in Calicut, Kerala. Custom business websites, e-commerce solutions, and digital marketing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nkwebdevelopers.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>NK Web Developers</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Build Your Professional Website Today</h1>
+                <p class="hero-subtitle">Premium web development services in Calicut, Kerala. Transform your online presence with our expert solutions.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary">Start Project</a>
+                    <a href="services.html" class="btn btn-secondary">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-content">
+                <p>Trusted by startups and businesses across Kerala</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Custom Web Development</h3>
+                    <p>Tailor-made websites designed specifically for your business needs.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>E-commerce Solutions</h3>
+                    <p>Complete online store setups with payment integration.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Responsive</h3>
+                    <p>Websites that work perfectly on all devices.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-search"></i>
+                    <h3>SEO Optimization</h3>
+                    <p>Boost your search engine rankings naturally.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Maintenance</h3>
+                    <p>Ongoing support and updates for your website.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>User-friendly interfaces that engage visitors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose NK Web Developers</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick turnaround times without compromising quality.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Quality Assurance</h3>
+                    <p>Rigorous testing ensures bug-free, reliable websites.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated support team ready to assist anytime.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Growth Focused</h3>
+                    <p>Strategies designed to help your business grow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Our Pricing Packages</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter Website</h3>
+                    <div class="price">₹4,999</div>
+                    <ul class="features">
+                        <li>Responsive Design</li>
+                        <li>Up to 5 Pages</li>
+                        <li>Basic SEO</li>
+                        <li>Contact Form</li>
+                        <li>Free Hosting Setup</li>
+                        <li>3 Months Support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-tag">Most Popular</div>
+                    <h3>Business Website</h3>
+                    <div class="price">₹9,999</div>
+                    <ul class="features">
+                        <li>Responsive Design</li>
+                        <li>Up to 10 Pages</li>
+                        <li>Advanced SEO</li>
+                        <li>Multiple Forms</li>
+                        <li>Free Hosting Setup</li>
+                        <li>6 Months Support</li>
+                        <li>Social Media Integration</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>E-commerce Website</h3>
+                    <div class="price">₹19,999</div>
+                    <ul class="features">
+                        <li>Responsive Design</li>
+                        <li>Unlimited Products</li>
+                        <li>Payment Gateway</li>
+                        <li>Inventory Management</li>
+                        <li>Advanced SEO</li>
+                        <li>12 Months Support</li>
+                        <li>Analytics Dashboard</li>
+                        <li>Marketing Tools</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Our Recent Work</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300/2c3e50/ffffff?text=Restaurant+Website" alt="Restaurant Website">
+                    <div class="portfolio-overlay">
+                        <h3>Restaurant Website</h3>
+                        <p>Food & Hospitality</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300/34495e/ffffff?text=Gym+Website" alt="Gym Website">
+                    <div class="portfolio-overlay">
+                        <h3>Gym Website</h3>
+                        <p>Fitness & Wellness</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300/7f8c8d/ffffff?text=Photography+Portfolio" alt="Photography Portfolio">
+                    <div class="portfolio-overlay">
+                        <h3>Photography Portfolio</h3>
+                        <p>Creative Portfolio</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/400x300/95a5a6/ffffff?text=Local+Business" alt="Local Business Website">
+                    <div class="portfolio-overlay">
+                        <h3>Local Business Website</h3>
+                        <p>Service Business</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Process -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Our Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We discuss your requirements and goals</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Design</h3>
+                    <p>Create mockups and get your approval</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Development</h3>
+                    <p>Build your website with attention to detail</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Launch</h3>
+                    <p>Deploy and provide ongoing support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"NK Web Developers transformed our online presence. The website looks amazing and performs perfectly."</p>
+                    <div class="client-info">
+                        <h4>Rajesh Kumar</h4>
+                        <p>Owner, Restaurant Chain</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Outstanding service and attention to detail. Highly recommend their services!"</p>
+                    <div class="client-info">
+                        <h4>Priya Sharma</h4>
+                        <p>Founder, Fitness Studio</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Professional, timely, and delivered beyond expectations. Will definitely work with them again."</p>
+                    <div class="client-info">
+                        <h4>Arun Menon</h4>
+                        <p>CEO, Local Business</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-final">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's discuss how we can help your business grow online</p>
+                <a href="contact.html" class="btn btn-primary">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/918547151916" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>NK Web Developers</h3>
+                    <p>Partner: Anvi Online Services</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> nivednaveen1979@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +91 8547151916</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Calicut, Kerala, India</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NK Web Developers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - NK Web Developers</title>
+    <meta name="description" content="About NK Web Developers - Professional web development company in Calicut, Kerala. Meet our team and learn about our services.">
+    <meta name="keywords" content="web development company, Calicut, Kerala, web developers, Nived K, Rijina PV">
+    <meta name="author" content="NK Web Developers">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>NK Web Developers</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Creating exceptional web experiences since 2023 in Calicut, Kerala</p>
+        </div>
+    </section>
+
+    <section class="about-full">
+        <div class="container">
+            <div class="about-content-full">
+                <div class="about-text">
+                    <h2>Who We Are</h2>
+                    <p>NK Web Developers is a premier web development agency based in Calicut, Kerala, dedicated to creating stunning, functional websites that help businesses thrive online. Founded in 2023, we've been helping companies of all sizes establish their digital presence with modern, responsive web solutions.</p>
+                    
+                    <p>Our team of experienced developers and designers work together to deliver custom websites that not only look great but also perform exceptionally well across all devices and browsers. We combine technical expertise with creative vision to build websites that drive results.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>To empower businesses with cutting-edge web solutions that drive growth, increase engagement, and deliver measurable results through innovative design and development practices. We believe in building long-term relationships with our clients by delivering exceptional value and outstanding service.</p>
+                    
+                    <h3>Our Values</h3>
+                    <ul>
+                        <li><strong>Excellence:</strong> We strive for perfection in every project we undertake</li>
+                        <li><strong>Innovation:</strong> We stay ahead of trends and technologies to provide cutting-edge solutions</li>
+                        <li><strong>Integrity:</strong> We maintain transparency and honesty with our clients at all times</li>
+                        <li><strong>Collaboration:</strong> We work closely with clients to achieve their goals and exceed expectations</li>
+                        <li><strong>Quality:</strong> We never compromise on quality and attention to detail</li>
+                    </ul>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>98%</h3>
+                        <p>Client Satisfaction</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Support Available</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/300x300/2c3e50/ffffff?text=NK" alt="Nived K">
+                    <h3>Nived K</h3>
+                    <p>Founder & Web Developer</p>
+                    <p>With over 5 years of experience in web development, Nived brings technical expertise and innovation to every project.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/300x300/34495e/ffffff?text=RPV" alt="Rijina PV">
+                    <h3>Rijina PV</h3>
+                    <p>Design & Client Support</p>
+                    <p>Rijina ensures beautiful designs and excellent client communication throughout the project lifecycle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Our Development Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>Understanding your business goals and requirements</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Planning</h3>
+                    <p>Creating detailed project plans and timelines</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Design</h3>
+                    <p>Developing wireframes and visual mockups</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Development</h3>
+                    <p>Building and testing the final product</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Launch</h3>
+                    <p>Deployment and ongoing support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/918547151916" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>NK Web Developers</h3>
+                    <p>Partner: Anvi Online Services</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> nivednaveen1979@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +91 8547151916</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Calicut, Kerala, India</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NK Web Developers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - NK Web Developers</title>
+    <meta name="description" content="Web development services by NK Web Developers in Calicut. Custom business websites, e-commerce solutions, and professional web design.">
+    <meta name="keywords" content="web services, business website, e-commerce, web design, Calicut, web development">
+    <meta name="author" content="NK Web Developers">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>NK Web Developers</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive web solutions tailored to your business needs</p>
+        </div>
+    </section>
+
+    <section class="services-full">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card-full">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Custom Web Development</h3>
+                    <p>Tailor-made websites designed specifically for your business needs. We create unique, scalable solutions that perfectly match your requirements and brand identity.</p>
+                    <ul>
+                        <li>Custom functionality development</li>
+                        <li>Database integration</li>
+                        <li>API development</li>
+                        <li>Third-party integrations</li>
+                        <li>Performance optimization</li>
+                        <li>Security implementation</li>
+                    </ul>
+                </div>
+                <div class="service-card-full">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>E-commerce Solutions</h3>
+                    <p>Complete online store setups with secure payment processing, inventory management, and customer management systems. Perfect for growing your online sales.</p>
+                    <ul>
+                        <li>Shopping cart implementation</li>
+                        <li>Payment gateway integration</li>
+                        <li>Inventory management</li>
+                        <li>Customer accounts</li>
+                        <li>Order tracking</li>
+                        <li>Marketing tools</li>
+                    </ul>
+                </div>
+                <div class="service-card-full">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Responsive Design</h3>
+                    <p>Ensure your website looks perfect and functions flawlessly on all devices. We create responsive designs that adapt to any screen size.</p>
+                    <ul>
+                        <li>Mobile-first approach</li>
+                        <li>Touch-friendly interfaces</li>
+                        <li>Fast loading times</li>
+                        <li>Optimized for mobile SEO</li>
+                        <li>App-like user experience</li>
+                        <li>Cross-browser compatibility</li>
+                    </ul>
+                </div>
+                <div class="service-card-full">
+                    <i class="fas fa-search"></i>
+                    <h3>SEO Optimization</h3>
+                    <p>Boost your search engine rankings and drive more organic traffic to your website. We implement best practices for maximum visibility.</p>
+                    <ul>
+                        <li>Keyword research</li>
+                        <li>On-page optimization</li>
+                        <li>Technical SEO</li>
+                        <li>Content optimization</li>
+                        <li>Local SEO</li>
+                        <li>Analytics setup</li>
+                    </ul>
+                </div>
+                <div class="service-card-full">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Website Maintenance</h3>
+                    <p>Keep your website secure, up-to-date, and performing at its best. We handle all aspects of website maintenance and support.</p>
+                    <ul>
+                        <li>Regular updates</li>
+                        <li>Security patches</li>
+                        <li>Backup management</li>
+                        <li>Performance monitoring</li>
+                        <li>Content updates</li>
+                        <li>Technical support</li>
+                    </ul>
+                </div>
+                <div class="service-card-full">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Create engaging user experiences with intuitive interfaces. We focus on usability, accessibility, and visual appeal to keep visitors engaged.</p>
+                    <ul>
+                        <li>User interface design</li>
+                        <li>User experience research</li>
+                        <li>Wireframing and prototyping</li>
+                        <li>Usability testing</li>
+                        <li>Brand consistency</li>
+                        <li>Accessibility compliance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Online Presence?</h2>
+                <p>Get in touch with us to discuss your project requirements and receive a free quote.</p>
+                <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/918547151916" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>NK Web Developers</h3>
+                    <p>Partner: Anvi Online Services</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> nivednaveen1979@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +91 8547151916</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Calicut, Kerala, India</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NK Web Developers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - NK Web Developers</title>
+    <meta name="description" content="Web development portfolio by NK Web Developers. See our latest projects and client success stories from Calicut, Kerala.">
+    <meta name="keywords" content=" examples, web development projects, Calicut, Kerala">
+    <meta name="author" content="NK Web Developers">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>NK Web Developers</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Portfolio</h1>
+            <p>See our latest web development projects and success stories</p>
+        </div>
+    </section>
+
+    <section class="portfolio-full">
+        <div class="container">
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="portfolio">Portfolio</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="business">
+                    <img src="https://via.placeholder.com/400x300/2c3e50/ffffff?text=Restaurant+Website" alt="Restaurant Website">
+                    <div class="portfolio-overlay">
+                        <h3>Restaurant Website</h3>
+                        <p>Food & Hospitality</p>
+                        <a href="#">View Details</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="business">
+                    <img src="https://via.placeholder.com/400x300/34495e/ffffff?text=Gym+Website" alt="Gym Website">
+                    <div class="portfolio-overlay">
+                        <h3>Gym Website</h3>
+                        <p>Fitness & Wellness</p>
+                        <a href="#">View Details</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="portfolio">
+                    <img src="https://via.placeholder.com/400x300/7f8c8d/ffffff?text=Photography+Portfolio" alt="Photography Portfolio">
+                    <div class="portfolio-overlay">
+                        <h3>Photography Portfolio</h3>
+                        <p>Creative Portfolio</p>
+                        <a href="#">View Details</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="business">
+                    <img src="https://via.placeholder.com/400x300/95a5a6/ffffff?text=Local+Business" alt="Local Business Website">
+                    <div class="portfolio-overlay">
+                        <h3>Local Business Website</h3>
+                        <p>Service Business</p>
+                        <a href="#">View Details</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="ecommerce">
+                    <img src="https://via.placeholder.com/400x300/bdc3c7/ffffff?text=E-commerce+Store" alt="E-commerce Store">
+                    <div class="portfolio-overlay">
+                        <h3>E-commerce Store</h3>
+                        <p>Online Retail</p>
+                        <a href="#">View Details</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="business">
+                    <img src="https://via.placeholder.com/400x300/ecf0f1/ffffff?text=Corporate+Site" alt="Corporate Website">
+                    <div class="portfolio-overlay">
+                        <h3>Corporate Website</h3>
+                        <p>Corporate Business</p>
+                        <a href="#">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Client Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>On-Time Delivery</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/918547151916" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>NK Web Developers</h3>
+                    <p>Partner: Anvi Online Services</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> nivednaveen1979@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +91 8547151916</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Calicut, Kerala, India</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NK Web Developers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - NK Web Developers</title>
+    <meta name="description" content="Contact NK Web Developers in Calicut, Kerala. Get in touch for web development services and project consultations.">
+    <meta name="keywords" content="contact web developer, Calicut, Kerala, web development consultation, project request">
+    <meta name="author" content="NK Web Developers">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>NK Web Developers</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p>Ready to start your project? Contact us today!</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Calicut, Kerala, India</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 8547151916</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>nivednaveen1979@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>Monday - Saturday: 9:00 AM - 7:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h3>Connect With Us</h3>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <form name="contact" method="POST" data-netlify="true" class="contact-form" id="contactForm">
+                    <h2>Project Request Form</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name*" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Your Phone*" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email*" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="businessName" name="businessName" placeholder="Business Name*" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select id="websiteType" name="websiteType" required>
+                            <option value="">Select Website Type*</option>
+                            <option value="business">Business Website</option>
+                            <option value="ecommerce">E-commerce Website</option>
+                            <option value="portfolio">Portfolio Website</option>
+                            <option value="landing">Landing Page</option>
+                            <option value="blog">Blog/News Site</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select id="budgetRange" name="budgetRange" required>
+                            <option value="">Select Budget Range*</option>
+                            <option value="3k-5k">₹3,000 - ₹5,000</option>
+                            <option value="5k-10k">₹5,000 - ₹10,000</option>
+                            <option value="10k-20k">₹10,000 - ₹20,000</option>
+                            <option value="20k-plus">₹20,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="url" id="websiteExample" name="websiteExample" placeholder="Link to Website Example You Like (Optional)">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Describe Your Website Idea in Detail*" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <h2>Find Us</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.2345678901234!2d75.77534567890123!3d11.258765432109876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba659c80eb48eab%3A0x70cfba4bd388d50!2sCalicut!5e0!3m2!1sen!2sin!4v1234567890123" width="100%" height="400" style="border:0;" allowfullscreen="" loading"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/918547151916" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>NK Web Developers</h3>
+                    <p>Partner: Anvi Online Services</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope"></i> nivednaveen1979@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> +91 8547151916</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Calicut, Kerala, India</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NK Web Developers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+              <script>
+                              // Mobile Navigation Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    }
+
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Form submission handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message
+            alert('Thank you for your project request! We will get back to you soon.');
+            
+            // Reset form
+            this.reset();
+        });
+    }
+
+    // Portfolio filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            portfolioItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Add scroll animation classes
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements
+    const animateElements = document.querySelectorAll('.service-card, .portfolio-item, .team-member, .pricing-card, .feature-card, .process-step, .testimonial-card');
+    animateElements.forEach(el => observer.observe(el));
+
+    // Add hover effects for better UX
+    const cards = document.querySelectorAll('.service-card, .team-member, .pricing-card, .feature-card, .process-step, .testimonial-card, .service-card-full');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Active navigation highlighting
+    const currentPath = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+
+    // Add loading animation for images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        
+        // Set initial opacity for fade-in effect
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.3s ease';
+    });
+
+    // Scroll to top button
+    const scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    scrollToTopBtn.className = 'scroll-top-btn';
+    scrollToTopBtn.style.cssText = `
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: #3498db;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        z-index: 999;
+        transition: all 0.3s ease;
+    `;
+    
+    document.body.appendChild(scrollToTopBtn);
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.style.display = 'flex';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    });
+
+    // Initialize animations on load
+    animateOnScroll();
+});
+
+// Utility functions for animations
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+}
+
+window.addEventListener('scroll', animateOnScroll);
+
+// Performance optimizations
+if ('requestAnimationFrame' in window) {
+    let ticking = false;
+    
+    function updateAnimations() {
+        animateOnScroll();
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateAnimations);
+            ticking = true;
+        }
+    });
+}
+
+
+              </script>
+                        </body>
+                        </html>
+                    
