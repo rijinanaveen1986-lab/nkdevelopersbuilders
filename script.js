@@ -49,17 +49,18 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
 
             const formData = new FormData(this);
-
             const data = Object.fromEntries(formData.entries());
 
             fetch("https://script.google.com/macros/s/AKfycbzgc5HFCxsvS2C11OJiOc4OGtW5LwP-_mN8P-FthZ71TSZ-yEyDiZJuCVGkYNEaxGb_/exec", {
                 method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify(data)
             })
-            .then(res => res.text())
-            .then(response => {
+            .then(() => {
 
-                // Animated success message
                 const successBox = document.createElement("div");
 
                 successBox.innerHTML = `
@@ -106,8 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
 
-                alert("Something went wrong. Please try again.");
-
+                alert("Submission failed. Please try again.");
                 console.error(error);
 
             });
